@@ -1,0 +1,25 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "Social Networking API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-p-n/social-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e-p-n/social-api/issues"
+  },
+  "homepage": "https://github.com/e-p-n/social-api#readme",
+  "dependencies": {
+    "date-fns": "^2.20.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3"
+  }
+}
