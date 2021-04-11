@@ -1,6 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 const { format } = require('date-fns');
 
+
 const ReactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
@@ -18,17 +19,18 @@ const ReactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: createdAtVal => format(createdAtVal,'EEEE MMMM d, yyyy. h:mm a')
+        get: createdAtVal => format(createdAtVal,'MMM. do, yyyy ') + 'at ' + format(createdAtVal, 'h:mm a')
     }
 },
 {
     toJSON: {
         getters: true
-    }
+    },
+    id: false
 })
 
 const ThoughtSchema = new Schema({
-    thoughText: {
+    thoughtText: {
         type: String,
         required: true,
         minlength: 1,
@@ -37,7 +39,7 @@ const ThoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: createdAtVal => format(createdAtVal,'EEEE MMMM d, yyyy. h:mm a')
+        get: createdAtVal => format(createdAtVal,'MMM. do, yyyy ') + 'at ' + format(createdAtVal, 'h:mm a')
     },
     username: {
         type: String,
@@ -49,7 +51,8 @@ const ThoughtSchema = new Schema({
     toJSON: {
         getters: true,
         virtuals: true
-    }
+    },
+    id: false
 })
 
 ThoughtSchema.virtual('reactionCount').get(function() {
@@ -58,4 +61,4 @@ ThoughtSchema.virtual('reactionCount').get(function() {
 
 const Thought = model('Thought', ThoughtSchema);
 
-model.exports = Thought;
+module.exports = Thought;
