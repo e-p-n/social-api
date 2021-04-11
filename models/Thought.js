@@ -1,7 +1,9 @@
+
 const { Schema, model, Types } = require('mongoose');
+// import date formatter
 const { format } = require('date-fns');
 
-
+// create Reaction schema
 const ReactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
@@ -19,6 +21,7 @@ const ReactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
+        // formats date
         get: createdAtVal => format(createdAtVal,"MMM. do, yyyy 'at' h:mm a")
     }
 },
@@ -29,6 +32,7 @@ const ReactionSchema = new Schema({
     id: false
 })
 
+// create Thought schema
 const ThoughtSchema = new Schema({
     thoughtText: {
         type: String,
@@ -39,6 +43,7 @@ const ThoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
+        // formats date
         get: createdAtVal => format(createdAtVal,"MMM. do, yyyy 'at' h:mm a")
     },
     username: {
@@ -55,6 +60,7 @@ const ThoughtSchema = new Schema({
     id: false
 })
 
+// virtual for counting reactions
 ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 })

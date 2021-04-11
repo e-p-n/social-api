@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-
+// create user schema
 const UserSchema = new Schema({
     username: {
         type: String,
@@ -12,6 +12,7 @@ const UserSchema = new Schema({
         type: String,
         unique: true,
         required: true,
+        // email regex that is supposed to work 99.9% of the time. From https://emailregex.com/
         match: [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/]
     },
     thoughts: [
@@ -35,7 +36,7 @@ const UserSchema = new Schema({
     id: false
 })
 
-// get total count of Friends on retrieval
+// virtual to get total count of Friends on retrieval
 UserSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
