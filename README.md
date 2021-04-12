@@ -12,7 +12,7 @@
 Backend for a social media website. Built with [Node.js](https://nodejs.org/en/), [Express](https://www.npmjs.com/package/express), [MongoDB](https://www.mongodb.com/try/download/community), [Mongoose](https://www.npmjs.com/package/mongoose) and [date-fns](https://www.npmjs.com/package/date-fns). Allows for creating, updating and deleting of Users, Friends, Thoughts and Reactions.
 ## Installation
 In order to install and use this application locally, you will need to have [MongoDB](https://www.mongodb.com/try/download/community) installed.
-1. Clone the GitHub repo. 
+1. Clone the [GitHub repo](https://github.com/e-p-n/social-apis). 
 2. Navigate to the directory of the clone. 
 3. Run "npm install". 
 4. Run "npm start" to launch the server.
